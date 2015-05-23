@@ -1,6 +1,5 @@
 /****************************************
-Example Sound Level Sketch for the 
-Adafruit Microphone Amplifier
+Sound Calibrated Led based on Adafruit Microphone Amplifier Sketch for Sound Level Sketch
 ****************************************/
 
 const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)
@@ -44,6 +43,8 @@ void loop()
    }
    peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
    double volts = (peakToPeak * 3.3) / 1024;  // convert to volts
+   
+   digitalWrite (ledPin, volts);
    
    delay(20); 
    
